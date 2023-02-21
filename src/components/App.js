@@ -29,11 +29,11 @@ const[allHomes, setAllHomes] = useState([])
     <div>
       <h1 id="h1">App</h1>
       <h2>Click a host to see their homes</h2>
-      {/* <NavBar/>
+       <NavBar/>
       <Switch>
       
-        <Route exact path ="/homes">
-            <HomesDisplay/>
+        <Route exact path ="/hosts">
+            <HostDisplay allHosts={allHosts} />
         </Route>
 
         <Route exact path ="/">
@@ -42,13 +42,13 @@ const[allHomes, setAllHomes] = useState([])
         </Route>
         
       </Switch>
-      <NewHomeForm/> */}
+      <NewHomeForm/>
       
-    <HomesDisplay />
+    {/* <HomesDisplay />
     <HomePage/>
     <NewHomeForm  setAllHomes= {setAllHomes} allHomes={allHomes}/>
     <NewHostForm/>
-    <HostDisplay allHosts={allHosts} />
+    <HostDisplay allHosts={allHosts} /> */}
       
   
     </div>

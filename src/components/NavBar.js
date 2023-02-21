@@ -26,7 +26,7 @@ function NavBar() {
       </NavLink>
      
       <NavLink
-        to="/homes"
+        to="/hosts"
         exact
         style={linkStyles}
         activeStyle={{
