@@ -2,7 +2,9 @@ import React from "react";
 
 function HomesTile ({home}){
     const {title, category, description, price, hostid, location} = home
-    //console.log(home)
+   
+
+    
     return (
         <div>
             <h2>{title}</h2>
@@ -10,7 +12,12 @@ function HomesTile ({home}){
             <p> Description :{description}</p>
             <p>Type : {category} </p>
             <p>Price: ${price}</p>
+            <ul>
+                <li>h</li>
+            
+            </ul>
             <button>Delete Home</button>
+            
         </div>
     )
 }
