@@ -41,7 +41,7 @@ const[allHomes, setAllHomes] = useState([])
       </Switch>
       <NewHomeForm/> */}
       
-    <HomesDisplay/>
+    <HomesDisplay allHomes = {allHomes}/>
     <HomePage/>
     <NewHomeForm/>
     <NewHostForm/>

@@ -1,12 +1,20 @@
 import React from "react";
-import HomesTile from "./HomeTile";
+import HomeTile from "./HomeTile";
 
-function HomesDisplay (){
+function HomesDisplay ({allHomes}){
+    const homesMap = allHomes.map((home) =>{
+        return (
+            <HomeTile key={home.id} home={home}/>
+        )
+    })
+    //console.log(allHomes)
+    console.log(homesMap)
     return (
         <div>
-            <p>
+            
                 all homes 
-            </p>
+                {homesMap}
+            
         </div>
     )
 }

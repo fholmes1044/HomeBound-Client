@@ -1,11 +1,15 @@
 import React from "react";
 
-function HomesTile (){
+function HomesTile ({home}){
+    const {title, category, description, price, hostid, location} = home
+    //console.log(home)
     return (
         <div>
-            <p>
-                individual home
-            </p>
+            <h2>{title}</h2>
+            <h4>Address : {location}</h4>
+            <p> Description :{description}</p>
+            <p>Type : {category} </p>
+            <p>Price: ${price}</p>
         </div>
     )
 }
