@@ -3,7 +3,7 @@ import React from "react";
 function HomePage(){
     return (
         <div>
-Homeee
+HomePage
         </div>
     )
 }

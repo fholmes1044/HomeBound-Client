@@ -10,6 +10,7 @@ function HomesTile ({home}){
             <p> Description :{description}</p>
             <p>Type : {category} </p>
             <p>Price: ${price}</p>
+            <button>Delete Home</button>
         </div>
     )
 }
