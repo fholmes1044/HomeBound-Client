@@ -2,7 +2,6 @@
 //import './App.css';
 import React, {useState, useEffect} from "react"
 import { Switch, Route } from "react-router-dom";
-import HomesDisplay from "./HomesDisplay"
 import HostDisplay from "./HostDisplay"
 import NewHomeForm from "./NewHomeForm"
 import NewHostForm from "./NewHostForm"
@@ -13,16 +12,33 @@ import HomePage from "./HomePage";
 
 function App() {
 const[allHosts, setAllHosts] = useState([])
-const[allHomes, setAllHomes] = useState([])
+
 
   useEffect(()=>{
     fetch("http://localhost:9292/hosts")
      .then((data)=> data.json())
      .then((hosts) => {
       setAllHosts(hosts)
+      
      })
   }, [])
 
+//find the host that home belongs to
+console.log("HOSTs", allHosts)
+  function addNewHome(newHome){
+    const updatedHosts = allHosts.map((host) =>{
+     
+      if(host.id === newHome.host_id){
+          return {...host,homes:[...host.homes, newHome]}
+      } else {
+        return host
+      }
+    })
+
+    setAllHosts(updatedHosts)
+    console.log("updted", updatedHosts)
+  }
+ 
   
 
   return (
@@ -33,7 +49,9 @@ const[allHomes, setAllHomes] = useState([])
       <Switch>
       
         <Route exact path ="/hosts">
+            <NewHomeForm  addNewHome={addNewHome}/>
             <HostDisplay allHosts={allHosts} />
+
         </Route>
 
         <Route exact path ="/">
@@ -42,7 +60,7 @@ const[allHomes, setAllHomes] = useState([])
         </Route>
         
       </Switch>
-      <NewHomeForm/>
+      
       
     {/* <HomesDisplay />
     <HomePage/>
