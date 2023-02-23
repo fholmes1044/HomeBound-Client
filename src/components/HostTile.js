@@ -11,8 +11,8 @@ function HostTile({host, handleDeletedHome}){
     //     method: "DELETE",
     // })
     // .then((data) => data.json())
-    // .then(() => handleDeletedHome(home))
-    console.log("deleted", e)
+    // .then(() => handleDeletedHome(host))
+    console.log("deleted", host)
  }
  
  function handleUpdateClick(e){

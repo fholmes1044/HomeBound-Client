@@ -8,11 +8,7 @@ function HostDisplay({allHosts}){
             <HostTile key = {host.id} host={host} />
         )
     })
-//pass handleDeletedHome= {handleDeletedHome}
-    // function handleDeletedHome(deletedHome){
-    //     const updatedHomes = allHosts.filter((hosts) => hosts.homes.id !== deletedHome.id);
-    //     setAllHosts(updatedHomes);
-    // }
+
     return (
        hostMap
     )

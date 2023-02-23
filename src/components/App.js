@@ -23,11 +23,10 @@ const[allHosts, setAllHosts] = useState([])
      })
   }, [])
 
-//find the host that home belongs to
-console.log("HOSTs", allHosts)
+
+//console.log("HOSTs", allHosts)
   function addNewHome(newHome){
     const updatedHosts = allHosts.map((host) =>{
-     
       if(host.id === newHome.host_id){
           return {...host,homes:[...host.homes, newHome]}
       } else {
@@ -35,10 +34,17 @@ console.log("HOSTs", allHosts)
       }
     })
 
+    
+
     setAllHosts(updatedHosts)
-    console.log("updted", updatedHosts)
+    //console.log("updted", updatedHosts)
   }
- 
+  
+ //pass handleDeletedHome= {handleDeletedHome}
+  // function handleDeletedHome(host){
+//     const updatedHomes = allHosts.filter((host) => host.homes.id !== deletedHome.id);
+    //     setAllHosts(updatedHomes);
+    // }
   
 
   return (
