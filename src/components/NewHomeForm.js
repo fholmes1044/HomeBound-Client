@@ -39,7 +39,7 @@ function handleSubmit(e){
             host_id: ""
         })
           addNewHome(newHome)
-        //setAllHomes([...allHomes, newHome])
+  
     })
     //alert("Your new Home has been added")
     

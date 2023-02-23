@@ -1,22 +1,30 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 function HostTile({host, handleDeletedHome}){
     const {full_name, email, phone_number, verified, homes, id} = host
-    
+    const [selectedHost, setSelectedHost] = useState(null)
     // function displayHomes(){
     //     console.log("displayed", host)  
     // }
+
+    useEffect(() => {
+        fetch(`http://localhost:9292/hosts/${id}`)
+          .then((r) => r.json())
+          .then((clickedHost) => setSelectedHost(clickedHost));
+      }, [id]);
+    
+      //if (!clickedHost) return <h2>Loading game data...</h2>;
  function handleDeletedClick(e){
-    // fetch(`http://localhost:9292/hosts/${id}`,{
-    //     method: "DELETE",
-    // })
-    // .then((data) => data.json())
-    // .then(() => handleDeletedHome(host))
+    fetch(`http://localhost:9292/homes/${id}`,{
+        method: "DELETE",
+    })
+    .then((data) => data.json())
+    .then((deletedhome) => handleDeletedHome(deletedhome))
     console.log("deleted", host)
  }
  
  function handleUpdateClick(e){
-//     fetch(`http://localhost:3001/hosts/${id}`,{
+//     fetch(`http://localhost:3001/homes/${id}`,{
 //             method: "PATCH",
 //             headers: {
 //                 "Content-Type": "application/json",

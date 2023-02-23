@@ -39,12 +39,12 @@ const[allHosts, setAllHosts] = useState([])
     setAllHosts(updatedHosts)
     //console.log("updted", updatedHosts)
   }
-  
- //pass handleDeletedHome= {handleDeletedHome}
-  // function handleDeletedHome(host){
-//     const updatedHomes = allHosts.filter((host) => host.homes.id !== deletedHome.id);
+
+
+  function handleDeletedHome(deletedhome){
+    // const updatedHomes = allHosts.filter((host) => host.homes.id !== passedhost.homes.id);
     //     setAllHosts(updatedHomes);
-    // }
+    }
   
 
   return (
@@ -56,7 +56,7 @@ const[allHosts, setAllHosts] = useState([])
       
         <Route exact path ="/hosts">
             <NewHomeForm  addNewHome={addNewHome}/>
-            <HostDisplay allHosts={allHosts} />
+            <HostDisplay  setAllHostes = {setAllHosts} allHosts={allHosts} handleDeletedHome={handleDeletedHome} />
 
         </Route>
 
