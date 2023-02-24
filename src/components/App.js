@@ -3,7 +3,6 @@
 import React, {useState, useEffect} from "react"
 import { Switch, Route } from "react-router-dom";
 import HostsDisplay from "./HostsDisplay"
-import NewHomeForm from "./NewHomeForm"
 import NewHostForm from "./NewHostForm"
 import NavBar from "./NavBar"
 import HomePage from "./HomePage";
@@ -34,10 +33,12 @@ const[allHosts, setAllHosts] = useState([])
       }
     })
 
-    
-
     setAllHosts(updatedHosts)
     //console.log("updted", updatedHosts)
+  }
+
+  function addNewHost(){
+
   }
 
 
@@ -58,14 +59,13 @@ const[allHosts, setAllHosts] = useState([])
         <Route exact path ="/hosts">
       
             {/* <NewHostForm/> */}
-            <HostsDisplay  setAllHostes = {setAllHosts} allHosts={allHosts} handleDeletedHome={handleDeletedHome} />
+            <HostsDisplay  setAllHostes = {setAllHosts} addNewHost={addNewHost} allHosts={allHosts} handleDeletedHome={handleDeletedHome} />
         </Route>
         <Route exact path ="/">
           <HomePage />
         </Route>
         <Route path = "/hosts/:hostId">
-{/* <NewHomeForm  addNewHome={addNewHome}/> */}
-                 <HostDetailsCard allHosts={allHosts} addNewHome={addNewHome}/>
+          <HostDetailsCard allHosts={allHosts} addNewHome={addNewHome}/>
 
         </Route> 
       </Switch>

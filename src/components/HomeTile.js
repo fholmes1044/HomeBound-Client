@@ -1,25 +1,22 @@
 import React from "react";
 
-function HomesTile ({home}){
+function HomeTile ({home}){
     const {title, category, description, price, hostid, location} = home
    
 
     
     return (
         <div>
-            <h2>{title}</h2>
-            <h4>Address : {location}</h4>
+            <h4>{title}</h4>
+            <h5>Address : {location}</h5>
             <p> Description :{description}</p>
             <p>Type : {category} </p>
             <p>Price: ${price}</p>
-            <ul>
-                <li>h</li>
-            
-            </ul>
+            <button>Update Home</button>
             <button>Delete Home</button>
             
         </div>
     )
 }
 
-export default HomesTile
+export default HomeTile
