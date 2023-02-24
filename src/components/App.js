@@ -37,8 +37,8 @@ const[allHosts, setAllHosts] = useState([])
     //console.log("updted", updatedHosts)
   }
 
-  function addNewHost(){
-
+  function addNewHost(newHost){
+   setAllHosts(...allHosts,newHost)
   }
 
 
@@ -49,6 +49,9 @@ const[allHosts, setAllHosts] = useState([])
     //     setAllHosts(updatedHomes);
     }
   
+    function handleUpdateClick(){
+
+    }
 
   return (
     <div>
@@ -65,7 +68,7 @@ const[allHosts, setAllHosts] = useState([])
           <HomePage />
         </Route>
         <Route path = "/hosts/:hostId">
-          <HostDetailsCard allHosts={allHosts} addNewHome={addNewHome}/>
+          <HostDetailsCard handleDeletedHome={handleDeletedHome} handleUpdatedHome={handleUpdatedHome}allHosts={allHosts} addNewHome={addNewHome}/>
 
         </Route> 
       </Switch>

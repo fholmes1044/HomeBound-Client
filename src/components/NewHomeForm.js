@@ -7,9 +7,7 @@ const [newHomeData, setNewHomeData] = useState({
     category: "",
     description: "",
     price: "",
-    guest_capacity:"",
-    //host_id: ""
-
+    guest_capacity:""
 })
 
 function handleHomeInput(e){

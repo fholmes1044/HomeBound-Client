@@ -3,7 +3,7 @@ import NewHomeForm from "./NewHomeForm"
 import{ useParams} from 'react-router-dom'
 import HomeTile from "./HomeTile";
 
-function HostDetailsCard({allHosts, addNewHome}){
+function HostDetailsCard({allHosts, addNewHome, handleDeletedHome, handleUpdateClick}){
     const {hostId} = useParams()
     const id = parseInt(hostId)
     if(allHosts.length > 0){
@@ -11,7 +11,7 @@ function HostDetailsCard({allHosts, addNewHome}){
       //console.log(currentHost)
       const currentHostHomes = currentHost.homes.map((home) => {
           return ( 
-            <HomeTile key={home.id} home={home}/>
+            <HomeTile key={home.id} home={home} handleDeletedHome={handleDeletedHome} handleUpdatedHome={handleUpdatedHome}/>
             )
       })
    

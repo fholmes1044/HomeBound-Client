@@ -1,17 +1,54 @@
-import React from "react";
+import React, {useState} from "react";
 
-function NewHostForm(){
+function NewHostForm({addNewHost}){
+const [newHostData, setNewHostData] = useState({
+    fullname: "",
+    email: "",
+    phone: "",
+    address: "",
+    verified: ""
+})
 
+function handleHostInput(e){
+setNewHostData({
+    ...newHostData,
+    [e.target.name]: e.target.value
+})
+}
+
+function handleSubmit(e){
+    e.preventDefault()
+    fetch("http:/localhost:9292/hosts",{
+        method:"POST",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            ...newHostData,  
+        }),
+    })
+    .then((data) => data.json())
+    .then((newHost) =>{
+        setNewHostData({
+            fullname: "",
+            email: "",
+            phone: "",
+            address: "",
+            verified: ""
+        })
+        addNewHost(newHost)
+    })
+}
  return(
     <div>
         <h2>Add New Host</h2>
-        <form>
-            <input type="text" name = "fullname" placeholder="First Name and Last Name" />
-            <input type="text" name = "email" placeholder="Email" />
-            <input type="text" name = "phone" placeholder="Phone Number" />
-            <input type="text" name = "address" placeholder="Address" />
-            <input type="text" name = "verfied" placeholder="Verified" />
-            <input type="submit"  name="submit"  value="Add New Host"  className="submit"/>  
+        <form onSubmit={handleSubmit}>
+            <input type="text" name = "fullname" placeholder="First Name and Last Name" onChange={handleHostInput} />
+            <input type="text" name = "email" placeholder="Email" onChange={handleHostInput}  />
+            <input type="text" name = "phone" placeholder="Phone Number" onChange={handleHostInput} />
+            <input type="text" name = "address" placeholder="Address" onChange={handleHostInput} />
+            <input type="text" name = "verfied" placeholder="Verified" onChange={handleHostInput} />
+            <input type="submit"  name="submit"  value="Add New Host"  className="submit" onChange={handleHostInput} />  
         </form>
         </div>
     )
