@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function NewHomeForm({addNewHome}){
+function NewHomeForm({addNewHome, host}){
 const [newHomeData, setNewHomeData] = useState({
     title: "",
     location: "",
@@ -8,7 +8,7 @@ const [newHomeData, setNewHomeData] = useState({
     description: "",
     price: "",
     guest_capacity:"",
-    host_id: ""
+    //host_id: ""
 
 })
 
@@ -25,7 +25,10 @@ function handleSubmit(e){
         headers: {
             "Content-Type": "application/json"
         },
-        body:JSON.stringify(newHomeData),
+        body:JSON.stringify({
+            ...newHomeData, 
+            host_id: host.id
+        }),
     })
     .then((data)=> data.json())
     .then((newHome) =>{
@@ -57,12 +60,12 @@ function handleSubmit(e){
             <input type="text" name = "price" placeholder="Price" onChange={handleHomeInput}/>
             <input type="text" name = "guest_capacity" placeholder="Guest Capacity" onChange={handleHomeInput}/>
             <br/>
-            <label> Select Host Name </label>
+            {/* <label> Select Host Name </label>
                 <select name = "host_id" id = "host_id" onChange={handleHomeInput}>
                     <option value = "1" > Ashley Jones </option>
                     <option value = "2"> Joseph Banks </option>
                     <option value="3">Lola James</option>
-                </select>
+                </select> */}
             
             <input type="submit"  name="submit"  value="Add New Home"  className="submit" />  
         </form>

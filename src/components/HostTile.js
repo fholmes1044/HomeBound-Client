@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from "react";
-import{
-    BrowserRouter as Router, 
-    Link,
-    Route
-} from 'react-router-dom'
+// import{
+//     BrowserRouter as Router, 
+//     Link,
+//     Route
+// } from 'react-router-dom'
 
 function HostTile({host, handleDeletedHome, setSelectedValue}){
-    const {full_name, email, phone_number, verified, homes, id} = host
-    const [selectedHost, setSelectedHost] = useState(null)
+    // const {full_name, email, phone_number, verified, homes, id} = host
+    // const [selectedHost, setSelectedHost] = useState(null)
     // function displayHomes(){
     //     console.log("displayed", host)  
     // }
@@ -27,16 +27,16 @@ function HostTile({host, handleDeletedHome, setSelectedValue}){
         //console.log(selectedHost, "")
     }
 
- function handleDeletedClick(){
-    fetch(`http://localhost:9292/homes/${id}`,{
-        method: "DELETE",
-    })
-    .then(handleDeletedHome(id))
-    // .then(()=> {
+//  function handleDeletedClick(){
+//     fetch(`http://localhost:9292/homes/${id}`,{
+//         method: "DELETE",
+//     })
+//     .then(handleDeletedHome(id))
+//     // .then(()=> {
 
-    // })
+//     // })
     
- }
+//  }
  
  function handleUpdateClick(e){
 //     fetch(`http://localhost:3001/homes/${id}`,{
@@ -86,20 +86,21 @@ console.log("updated", e)
     //         <button onClick={handleDeletedClick}>Delete Home</button>
     //         </div>
     // )} )
-   function showHostDetails(){
+//    function showHostDetails(){
     
-   }
+//    }
 
     return(
         <div >
-            
+            <h2>Home</h2>
+{/*             
             <h2><Link to={`/hosts/${id}`}></Link> Name: {full_name}</h2>
             <h4> Email: {email}</h4>
             <h4> Phone Number: {phone_number} </h4>
             <h5> Verified Host : {verified.toString()} </h5>
             <button onClick={showHostDetails}> Select Host</button>
               {/* <h3>Homes</h3> */}
-                {/* /*{homesMap}*/ }  
+                {/* /*{homesMap}*/ }   */
         </div>
     )
 }

@@ -7,7 +7,7 @@ import NewHomeForm from "./NewHomeForm"
 import NewHostForm from "./NewHostForm"
 import NavBar from "./NavBar"
 import HomePage from "./HomePage";
-
+import HostDetailsCard from "./HostDetailsCard";
 
 
 function App() {
@@ -56,17 +56,18 @@ const[allHosts, setAllHosts] = useState([])
        <NavBar/>
        <Switch>
         <Route exact path ="/hosts">
-            <NewHomeForm  addNewHome={addNewHome}/>
-            <NewHostForm/>
+      
+            {/* <NewHostForm/> */}
             <HostsDisplay  setAllHostes = {setAllHosts} allHosts={allHosts} handleDeletedHome={handleDeletedHome} />
         </Route>
         <Route exact path ="/">
-          
           <HomePage />
         </Route>
-        <Route exact path = "hosts/:host_id">
-          <HostsDisplay setAllHostes = {setAllHosts} allHosts={allHosts} handleDeletedHome={handleDeletedHome} />
-          </Route> 
+        <Route path = "/hosts/:hostId">
+{/* <NewHomeForm  addNewHome={addNewHome}/> */}
+                 <HostDetailsCard allHosts={allHosts} addNewHome={addNewHome}/>
+
+        </Route> 
       </Switch>
       
       

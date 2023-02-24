@@ -1,10 +1,16 @@
 import React, {useState} from "react";
 import HostTile from "./HostTile";
+import HostDetails from "./HostDetailsCard";
+import NewHostForm from "./NewHostForm"
 import{
     BrowserRouter as Router, 
     Link,
-    Route, useRouteMatch
+    Route, 
+    useRouteMatch,
+    useParams,
+    Switch
 } from 'react-router-dom'
+import HostDetailsCard from "./HostDetailsCard";
 
 function HostsDisplay({allHosts, setAllHosts, handleDeletedHome}){
     //console.log("ALL", allHosts)
@@ -19,28 +25,36 @@ const [selectedValue, setSelectedValue] = useState(false)
     //  })
     }
 const {path, url} = useRouteMatch()
-    console.log(url)
+   // console.log(url)
     const hostsMap = allHosts.map((host) => {
-        console.log(host)
         return (
             <div>
-                <ul>
+                
                 <li key={host.id}>
                     <Link to={`${url}/${host.id}`}>{host.full_name}</Link>
                 </li>
-                </ul>
-                <Route path={`${path}/${host.id}`}>
-                    <HostsDisplay />
-                </Route>
+                
+
+                <hr />
+                 
             </div>
-            // <div onClick={displayHostHomes}>
-            // <HostTile key = {host.id} host={host}  handleDeletedHome={handleDeletedHome} setSelectedValue={setSelectedValue}/>
-            // </div> 
+
             )
     })
 
+    // const hostDetails = allHosts.map((host) =>{
+    //     return (
+    //     <HostDetailsCard key={host.id} host={host}/>
+    //     )
+    // })
+
     return (
-       hostsMap
+        <>
+        <NewHostForm/>
+        <ul>
+       {hostsMap}
+        </ul>
+       </>
     )
 
 }
