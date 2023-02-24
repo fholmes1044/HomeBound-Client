@@ -1,26 +1,41 @@
 import React, {useState, useEffect} from "react";
+import{
+    BrowserRouter as Router, 
+    Link,
+    Route
+} from 'react-router-dom'
 
-function HostTile({host, handleDeletedHome}){
+function HostTile({host, handleDeletedHome, setSelectedValue}){
     const {full_name, email, phone_number, verified, homes, id} = host
     const [selectedHost, setSelectedHost] = useState(null)
     // function displayHomes(){
     //     console.log("displayed", host)  
     // }
 
-    useEffect(() => {
-        fetch(`http://localhost:9292/hosts/${id}`)
-          .then((r) => r.json())
-          .then((clickedHost) => setSelectedHost(clickedHost));
-      }, [id]);
+    // useEffect(() => {
+    //     fetch(`http://localhost:9292/hosts/${id}`)
+    //       .then((r) => r.json())
+    //       .then((clickedHost) => {
+    //         setSelectedHost(clickedHost)}); 
+    //   }, [id]);
     
-      //if (!clickedHost) return <h2>Loading game data...</h2>;
- function handleDeletedClick(e){
+      //console.log("selected", selectedHost)
+
+
+    function displaySelectedHost(){
+        
+        //console.log(selectedHost, "")
+    }
+
+ function handleDeletedClick(){
     fetch(`http://localhost:9292/homes/${id}`,{
         method: "DELETE",
     })
-    .then((data) => data.json())
-    .then((deletedhome) => handleDeletedHome(deletedhome))
-    console.log("deleted", host)
+    .then(handleDeletedHome(id))
+    // .then(()=> {
+
+    // })
+    
  }
  
  function handleUpdateClick(e){
@@ -38,31 +53,53 @@ function HostTile({host, handleDeletedHome}){
 console.log("updated", e)
     }
  
-    const homesMap = homes.map((home) => {
+    //const homesMap = homes.map((home) => {
         //console.log(home)
-        return(
-            <div key={home.id}>
-            <h4>{home.title}</h4>
-            <h5>Address : {home.location}</h5>
-            <p> Description :{home.description}</p>
-            <p>Type : {home.category} </p>
-            <p>Price: ${home.price}</p>
-            <p>Capacity: {home.guest_capacity}</p>
-            <button>Update Home Listing</button>
-            <button onClick={handleDeletedClick}>Delete Home</button>
-            </div>
-    )} )
-   
+        //if(selectedHost === null){
+            // return(
+    //         <div key={home.id} onClick={displaySelectedHost}>
+    //         <h4>{home.title}</h4>
+    //         <h5>Address : {home.location}</h5>
+    //         <p> Description :{home.description}</p>
+    //         <p>Type : {home.category} </p>
+    //         <p>Price: ${home.price}</p>
+    //         <p>Capacity: {home.guest_capacity}</p>
+    //         <button>Update Home Listing</button>
+    //         <button onClick={handleDeletedClick}>Delete Home</button>
+    //         </div>
+    // )
+        //}
+
+        // else {
+           // return selectedHost
+        //}
+    //     return(
+    //         <div key={home.id} onClick={displaySelectedHost}>
+    //         <h4>{home.title}</h4>
+    //         <h5>Address : {home.location}</h5>
+    //         <p> Description :{home.description}</p>
+    //         <p>Type : {home.category} </p>
+    //         <p>Price: ${home.price}</p>
+    //         <p>Capacity: {home.guest_capacity}</p>
+    //         <button onClick = {setSelectedValue}>Select</button>
+    //         <button>Update Home Listing</button>
+    //         <button onClick={handleDeletedClick}>Delete Home</button>
+    //         </div>
+    // )} )
+   function showHostDetails(){
+    
+   }
 
     return(
         <div >
-            <h2> Name: {full_name}</h2>
-            <h2> Email: {email}</h2>
-            <h2> Phone Number: {phone_number} </h2>
-            <h2> Verified Host : {verified.toString()} </h2>
-              <h3>Homes</h3>
-                {homesMap}
             
+            <h2><Link to={`/hosts/${id}`}></Link> Name: {full_name}</h2>
+            <h4> Email: {email}</h4>
+            <h4> Phone Number: {phone_number} </h4>
+            <h5> Verified Host : {verified.toString()} </h5>
+            <button onClick={showHostDetails}> Select Host</button>
+              {/* <h3>Homes</h3> */}
+                {/* /*{homesMap}*/ }  
         </div>
     )
 }

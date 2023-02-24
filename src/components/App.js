@@ -2,7 +2,7 @@
 //import './App.css';
 import React, {useState, useEffect} from "react"
 import { Switch, Route } from "react-router-dom";
-import HostDisplay from "./HostDisplay"
+import HostsDisplay from "./HostsDisplay"
 import NewHomeForm from "./NewHomeForm"
 import NewHostForm from "./NewHostForm"
 import NavBar from "./NavBar"
@@ -41,7 +41,9 @@ const[allHosts, setAllHosts] = useState([])
   }
 
 
-  function handleDeletedHome(deletedhome){
+  function handleDeletedHome(id){
+    // //findthehome
+    // const findHome = allHosts.find
     // const updatedHomes = allHosts.filter((host) => host.homes.id !== passedhost.homes.id);
     //     setAllHosts(updatedHomes);
     }
@@ -52,19 +54,19 @@ const[allHosts, setAllHosts] = useState([])
       <h1 id="h1">App</h1>
       <h2>Click a host to see their homes</h2>
        <NavBar/>
-      <Switch>
-      
+       <Switch>
         <Route exact path ="/hosts">
             <NewHomeForm  addNewHome={addNewHome}/>
-            <HostDisplay  setAllHostes = {setAllHosts} allHosts={allHosts} handleDeletedHome={handleDeletedHome} />
-
+            <NewHostForm/>
+            <HostsDisplay  setAllHostes = {setAllHosts} allHosts={allHosts} handleDeletedHome={handleDeletedHome} />
         </Route>
-
         <Route exact path ="/">
+          
           <HomePage />
-          <NewHostForm/>
         </Route>
-        
+        <Route exact path = "hosts/:host_id">
+          <HostsDisplay setAllHostes = {setAllHosts} allHosts={allHosts} handleDeletedHome={handleDeletedHome} />
+          </Route> 
       </Switch>
       
       
