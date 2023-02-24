@@ -38,7 +38,10 @@ const[allHosts, setAllHosts] = useState([])
   }
 
   function addNewHost(newHost){
-   setAllHosts(...allHosts,newHost)
+    const updatedHostList = allHosts.map((host) =>{
+      return {...host, newHost}
+    })
+   setAllHosts(updatedHostList)
   }
 
 
@@ -49,7 +52,7 @@ const[allHosts, setAllHosts] = useState([])
     //     setAllHosts(updatedHomes);
     }
   
-    function handleUpdateClick(){
+    function handleUpdatedHome(){
 
     }
 

@@ -36,9 +36,9 @@ function HomeTile ({home, handleDeletedHome, handleUpdatedHome}){
             <p> Description :{description}</p>
             <p>Type : {category} </p>
             <p>Price: ${price}</p>
-            <button onClick={handleDeletedClick}>Update Home</button>
+            {/* <button onClick={handleDeletedClick}>Update Home</button>
             <button onClick={handleUpdateClick}>Delete Home</button>
-            
+             */}
         </div>
     )
 }

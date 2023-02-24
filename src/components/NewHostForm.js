@@ -2,9 +2,9 @@ import React, {useState} from "react";
 
 function NewHostForm({addNewHost}){
 const [newHostData, setNewHostData] = useState({
-    fullname: "",
+    full_name: "",
     email: "",
-    phone: "",
+    phone_number: "",
     address: "",
     verified: ""
 })
@@ -18,7 +18,7 @@ setNewHostData({
 
 function handleSubmit(e){
     e.preventDefault()
-    fetch("http:/localhost:9292/hosts",{
+    fetch("http://localhost:9292/hosts",{
         method:"POST",
         headers:{
             "Content-Type": "application/json"
@@ -30,9 +30,9 @@ function handleSubmit(e){
     .then((data) => data.json())
     .then((newHost) =>{
         setNewHostData({
-            fullname: "",
+            full_name: "",
             email: "",
-            phone: "",
+            phone_number: "",
             address: "",
             verified: ""
         })
@@ -43,11 +43,11 @@ function handleSubmit(e){
     <div>
         <h2>Add New Host</h2>
         <form onSubmit={handleSubmit}>
-            <input type="text" name = "fullname" placeholder="First Name and Last Name" onChange={handleHostInput} />
+            <input type="text" name = "full_name" placeholder="First Name and Last Name" onChange={handleHostInput} />
             <input type="text" name = "email" placeholder="Email" onChange={handleHostInput}  />
-            <input type="text" name = "phone" placeholder="Phone Number" onChange={handleHostInput} />
+            <input type="text" name = "phone_number" placeholder="Phone Number" onChange={handleHostInput} />
             <input type="text" name = "address" placeholder="Address" onChange={handleHostInput} />
-            <input type="text" name = "verfied" placeholder="Verified" onChange={handleHostInput} />
+            <input type="text" name = "verified" placeholder="Verified" onChange={handleHostInput} />
             <input type="submit"  name="submit"  value="Add New Host"  className="submit" onChange={handleHostInput} />  
         </form>
         </div>
