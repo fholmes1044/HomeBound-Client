@@ -44,12 +44,28 @@ const[allHosts, setAllHosts] = useState([])
    setAllHosts(updatedHostList)
   }
 
+ console.log(allHosts)
+  function handleDeletedHome(home){
+    const map = allHosts.map((host) =>{
+      if(host.id == home.host_id){
+            const updatedHomes = host.homes.filter((listedhome) => listedhome.id !== home.id)
+            const mapHomes = updatedHomes.map((mappedHome) =>{ 
+              return(mappedHome)})
+            return  {...host,homes:[mapHomes]}
+    }
+    else return{
+      host
+    }
+    })
 
-  function handleDeletedHome(id){
-    // //findthehome
-    // const findHome = allHosts.find
-    // const updatedHomes = allHosts.filter((host) => host.homes.id !== passedhost.homes.id);
-    //     setAllHosts(updatedHomes);
+    // setAllHosts(map)
+    //console.log(map)
+    //  const findHost = allHosts.find((host) => host.id == home.host_id);
+    // // console.log("UP",updatedHomes.homes)
+    // const updatedHomes = findHost.homes.filter((listedhome) => listedhome.id !== home.id)
+    // console.log(updatedHomes)
+
+        //setAllHosts(updatedHomes);
     }
   
     function handleUpdatedHome(){

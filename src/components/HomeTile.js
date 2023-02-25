@@ -1,18 +1,15 @@
 import React from "react";
 
 function HomeTile ({home, handleDeletedHome, handleUpdatedHome}){
-    const {title, category, description, price, hostid, location} = home
-   
-     //function handleDeletedClick(){
-        //     fetch(`http://localhost:9292/homes/${id}`,{
-        //         method: "DELETE",
-        //     })
-        //     .then(handleDeletedHome(id))
-        //     // .then(()=> {
-        
-        //     // })
+    const {title, category, description, price, id, location} = home
+  
+     function handleDeletedClick(){
+            fetch(`http://localhost:9292/homes/${id}`,{
+                method: "DELETE",
+            })
+            .then(() => handleDeletedHome(home))
             
-        //  }
+         }
          
         // function handleUpdateClick(e){
         //     fetch(`http://localhost:3001/homes/${id}`,{
@@ -36,9 +33,9 @@ function HomeTile ({home, handleDeletedHome, handleUpdatedHome}){
             <p> Description :{description}</p>
             <p>Type : {category} </p>
             <p>Price: ${price}</p>
-            {/* <button onClick={handleDeletedClick}>Update Home</button>
-            <button onClick={handleUpdateClick}>Delete Home</button>
-             */}
+            <button onClick={handleDeletedClick}>Delete Home</button>
+            {/* <button onClick={handleUpdateClick}>Delete Home</button> */}
+            
         </div>
     )
 }
