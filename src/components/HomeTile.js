@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
+import UpdateHomeForm from "./UpdateHomeForm";
 
 function HomeTile ({home, handleDeletedHome, handleUpdatedHome}){
     const {title, category, description, price, id, location} = home
+
+    // console.log("title", title)
   
      function handleDeletedClick(){
             fetch(`http://localhost:9292/homes/${id}`,{
@@ -11,19 +14,21 @@ function HomeTile ({home, handleDeletedHome, handleUpdatedHome}){
             
          }
          
-        // function handleUpdateClick(e){
-        //     fetch(`http://localhost:3001/homes/${id}`,{
-        //             method: "PATCH",
-        //             headers: {
-        //                 "Content-Type": "application/json",
-        //               },
-        //             body: JSON.stringify({
-        //                 price: !recommendStatus,
-        //               }),
-        //         })
-        //         .then((data) => data.json())
-        //         .then((updatedHome) => handleUpdatedHome(updatedHome))
-        //console.log("updated", e)}
+         function handleUpdateClick(){
+            fetch(`http://localhost:3001/homes/${id}`,{
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                      },
+                    body: JSON.stringify({
+                        title: title,
+                        description: description,
+                        price: price
+                      }),
+                })
+                .then((data) => data.json())
+                .then((updatedHome) => handleUpdatedHome(updatedHome))
+        console.log("updated", id)}
             
     
     return (
@@ -34,8 +39,7 @@ function HomeTile ({home, handleDeletedHome, handleUpdatedHome}){
             <p>Type : {category} </p>
             <p>Price: ${price}</p>
             <button onClick={handleDeletedClick}>Delete Home</button>
-            {/* <button onClick={handleUpdateClick}>Delete Home</button> */}
-            
+            <button onClick={handleUpdateClick}>Update Home</button>    
         </div>
     )
 }

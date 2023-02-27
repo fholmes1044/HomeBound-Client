@@ -3,7 +3,6 @@
 import React, {useState, useEffect} from "react"
 import { Switch, Route } from "react-router-dom";
 import HostsDisplay from "./HostsDisplay"
-import NewHostForm from "./NewHostForm"
 import NavBar from "./NavBar"
 import HomePage from "./HomePage";
 import HostDetailsCard from "./HostDetailsCard";
@@ -11,6 +10,7 @@ import HostDetailsCard from "./HostDetailsCard";
 
 function App() {
 const[allHosts, setAllHosts] = useState([])
+
 
 
   useEffect(()=>{
@@ -39,38 +39,61 @@ const[allHosts, setAllHosts] = useState([])
 
   function addNewHost(newHost){
     const updatedHostList = allHosts.map((host) =>{
-      return {...host, newHost}
+      return (
+        {...host, newHost}
+        )
     })
    setAllHosts(updatedHostList)
   }
 
+  function handleDeletedHost(id){
+    const remainingHost = allHosts.filter((host) => host.id !== id)
+    setAllHosts(remainingHost)
+  }
+
  console.log(allHosts)
   function handleDeletedHome(home){
-    const map = allHosts.map((host) =>{
-      if(host.id == home.host_id){
-            const updatedHomes = host.homes.filter((listedhome) => listedhome.id !== home.id)
-            const mapHomes = updatedHomes.map((mappedHome) =>{ 
-              return(mappedHome)})
-            return  {...host,homes:[mapHomes]}
-    }
-    else return{
-      host
-    }
-    })
+    // const map = allHosts.map((host) =>{
+    //   if(host.id == home.host_id){
+    //         const updatedHomes = host.homes.filter((listedhome) => listedhome.id !== home.id)
+   
+    // }
+    // else return{
+    //   host
+    // }
+    // })
 
     // setAllHosts(map)
     //console.log(map)
-    //  const findHost = allHosts.find((host) => host.id == home.host_id);
+     const findHost = allHosts.find((host) => host.id == home.host_id);
+     //console.log(findHost)
     // // console.log("UP",updatedHomes.homes)
-    // const updatedHomes = findHost.homes.filter((listedhome) => listedhome.id !== home.id)
-    // console.log(updatedHomes)
+    const updatedHomes = findHost.homes.filter((listedhome) => listedhome.id !== home.id)
+    //console.log(updatedHomes)
 
-        //setAllHosts(updatedHomes);
+    const updatedNewHosts = allHosts.map((host) =>{
+      if(findHost){
+          return {...host,homes:[...updatedHomes]}
+      } else {
+        return host
+      }
+    })
+   
+    
+
+        setAllHosts(updatedNewHosts);
     }
   
-    function handleUpdatedHome(){
+    function handleUpdatedHome(updateddata){
+    //   let updatedDataMap = allHosts.homes.map((host) =>{
+    //     if(host.id === updateddata.id){
+    //       return updated
+    //     }
+    //     return updated
+    //   })
 
-    }
+    //   setAllHosts(updatedDataMap)
+     }
 
   return (
     <div>
@@ -79,26 +102,16 @@ const[allHosts, setAllHosts] = useState([])
        <NavBar/>
        <Switch>
         <Route exact path ="/hosts">
-      
-            {/* <NewHostForm/> */}
             <HostsDisplay  setAllHostes = {setAllHosts} addNewHost={addNewHost} allHosts={allHosts} handleDeletedHome={handleDeletedHome} />
         </Route>
         <Route exact path ="/">
           <HomePage />
         </Route>
         <Route path = "/hosts/:hostId">
-          <HostDetailsCard handleDeletedHome={handleDeletedHome} handleUpdatedHome={handleUpdatedHome}allHosts={allHosts} addNewHome={addNewHome}/>
+          <HostDetailsCard handleDeletedHome={handleDeletedHome} handleDeletedHost={handleDeletedHost}handleUpdatedHome={handleUpdatedHome}allHosts={allHosts} addNewHome={addNewHome}/>
 
         </Route> 
       </Switch>
-      
-      
-    {/* <HomesDisplay />
-    <HomePage/>
-    <NewHomeForm  setAllHomes= {setAllHomes} allHomes={allHomes}/>
-    <NewHostForm/>
-    <HostDisplay allHosts={allHosts} /> */}
-      
   
     </div>
   )

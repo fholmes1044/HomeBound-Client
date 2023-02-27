@@ -1,26 +1,27 @@
-import React, {useState} from "react";
+ import React, {useState} from "react";
 
 import NewHostForm from "./NewHostForm"
 import{
-    BrowserRouter as Router, 
-    Link,
-    Route, 
+    BrowserRouter as  Router,
+    Link,  
+    Route,
     useRouteMatch,
-    useParams,
     Switch
 } from 'react-router-dom'
 
 
-function HostsDisplay({allHosts, setAllHosts, handleDeletedHome, addNewHost}){
+function HostsDisplay({allHosts, addNewHost}){
     
-const {path, url} = useRouteMatch()
+    const {url} = useRouteMatch()
    // console.log(url)
+    
     const hostsMap = allHosts.map((host) => {
         return (
             <div>
                 
                 <li key={host.id}>
                     <Link to={`${url}/${host.id}`}>{host.full_name}</Link>
+                    <br/>   
                 </li>
                 
 
