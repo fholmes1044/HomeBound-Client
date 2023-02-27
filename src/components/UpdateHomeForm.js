@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-function UpdateHomeForm(){
+function UpdateHomeForm({updatedHomeId, handleUpdatedHome}){
     const [updatedData, setUpdatedData] = useState({
         title: "",
         description: "",
@@ -14,8 +14,21 @@ function UpdateHomeForm(){
         })
     }
 
-    function handleUpdateSubmit(){
-
+    function handleUpdateSubmit(e){
+        e.preventDefault()
+        fetch(`http://localhost:3001/homes/${updatedHomeId}`,{
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                      },
+                    body: JSON.stringify({
+                        title: updatedData.title,
+                        description: updatedData.description,
+                        price: updatedData.price
+                      }),
+                })
+                .then((data) => data.json())
+                .then((updatedHome) => handleUpdatedHome(updatedHome))
     }
     return(
         <div>

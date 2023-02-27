@@ -10,6 +10,7 @@ import HostDetailsCard from "./HostDetailsCard";
 
 function App() {
 const[allHosts, setAllHosts] = useState([])
+const[updatedHomeId, setUpdatedHomeId] = useState("")
 
 
 
@@ -51,25 +52,11 @@ const[allHosts, setAllHosts] = useState([])
     setAllHosts(remainingHost)
   }
 
- console.log(allHosts)
+ 
   function handleDeletedHome(home){
-    // const map = allHosts.map((host) =>{
-    //   if(host.id == home.host_id){
-    //         const updatedHomes = host.homes.filter((listedhome) => listedhome.id !== home.id)
-   
-    // }
-    // else return{
-    //   host
-    // }
-    // })
-
-    // setAllHosts(map)
-    //console.log(map)
-     const findHost = allHosts.find((host) => host.id == home.host_id);
-     //console.log(findHost)
-    // // console.log("UP",updatedHomes.homes)
+    const findHost = allHosts.find((host) => host.id == home.host_id);
     const updatedHomes = findHost.homes.filter((listedhome) => listedhome.id !== home.id)
-    //console.log(updatedHomes)
+    
 
     const updatedNewHosts = allHosts.map((host) =>{
       if(findHost){
@@ -78,21 +65,19 @@ const[allHosts, setAllHosts] = useState([])
         return host
       }
     })
-   
-    
-
         setAllHosts(updatedNewHosts);
     }
   
-    function handleUpdatedHome(updateddata){
-    //   let updatedDataMap = allHosts.homes.map((host) =>{
-    //     if(host.id === updateddata.id){
-    //       return updated
-    //     }
-    //     return updated
-    //   })
+    function handleUpdatedHome(updatedHome){
+      const SelectedHost = allHosts.find((host) => host.id == updatedHome.host_id);
+      const updatedHomeList = SelectedHost.homes.map((host) =>{
+        if(host.id === updatedHome.id){
+          return updatedHome
+        } else
+        return host
+      })
 
-    //   setAllHosts(updatedDataMap)
+      setAllHosts(updatedHomeList)
      }
 
   return (
@@ -108,7 +93,7 @@ const[allHosts, setAllHosts] = useState([])
           <HomePage />
         </Route>
         <Route path = "/hosts/:hostId">
-          <HostDetailsCard handleDeletedHome={handleDeletedHome} handleDeletedHost={handleDeletedHost}handleUpdatedHome={handleUpdatedHome}allHosts={allHosts} addNewHome={addNewHome}/>
+          <HostDetailsCard updatedHomeId={updatedHomeId} setUpdatedHomeId={setUpdatedHomeId} handleDeletedHome={handleDeletedHome} handleDeletedHost={handleDeletedHost}handleUpdatedHome={handleUpdatedHome}allHosts={allHosts} addNewHome={addNewHome}/>
 
         </Route> 
       </Switch>

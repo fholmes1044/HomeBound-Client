@@ -4,14 +4,14 @@ import{ useParams} from 'react-router-dom'
 import HomeTile from "./HomeTile";
 import UpdateHomeForm from "./UpdateHomeForm";
 
-function HostDetailsCard({allHosts, addNewHome, handleDeletedHost, handleDeletedHome, handleUpdatedHome}){
+function HostDetailsCard({allHosts,updatedHomeId, addNewHome, handleDeletedHost, handleDeletedHome, setUpdatedHomeId, handleUpdatedHome}){
     const {hostId} = useParams()
     const id = parseInt(hostId)
     if(allHosts.length > 0){
       const currentHost = allHosts.find((host) => host.id === id )
       const currentHostHomes = currentHost.homes.map((home) => {
           return ( 
-            <HomeTile key={home.id} home={home} handleDeletedHome={handleDeletedHome} handleUpdatedHome={handleUpdatedHome}/>
+            <HomeTile key={home.id} home={home} handleDeletedHome={handleDeletedHome} setUpdatedHomeId={setUpdatedHomeId} handleUpdatedHome={handleUpdatedHome}/>
             )
       })
    function deleteHost(){
@@ -25,7 +25,7 @@ function HostDetailsCard({allHosts, addNewHome, handleDeletedHost, handleDeleted
         return(
             <div>
                 <NewHomeForm  addNewHome={addNewHome} host={currentHost}/> 
-                <UpdateHomeForm/>
+                <UpdateHomeForm updatedHomeId={updatedHomeId} handleUpdatedHome={handleUpdatedHome}/>
                 HOST DETAILS
                 <h2>{currentHost.full_name}</h2> 
                 <h3>Email: {currentHost.email}</h3>
