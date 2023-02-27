@@ -13,7 +13,9 @@ function HostDetailsCard({allHosts,updatedHomeId, addNewHome, handleDeletedHost,
           return ( 
             <HomeTile key={home.id} home={home} handleDeletedHome={handleDeletedHome} setUpdatedHomeId={setUpdatedHomeId} handleUpdatedHome={handleUpdatedHome}/>
             )
+        
       })
+      
    function deleteHost(){
        // console.log("Host",id)
         fetch(`http://localhost:9292/hosts/${id}`,{

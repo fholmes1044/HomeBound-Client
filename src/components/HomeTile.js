@@ -2,10 +2,11 @@ import React, {useState} from "react";
 
 
 function HomeTile ({home, handleDeletedHome, setUpdatedHomeId}){
-    const {title, category, description, price, id, location} = home
+    
+    const {title, category, description, price, id, location,guest_capacity} = home
 
     
-  
+  console.log(home)
      function handleDeletedClick(){
             fetch(`http://localhost:9292/homes/${id}`,{
                 method: "DELETE",
@@ -15,7 +16,7 @@ function HomeTile ({home, handleDeletedHome, setUpdatedHomeId}){
          }
          
          function handleUpdateClick(){
-            console.log("id")
+
             setUpdatedHomeId(id)
         
     }
@@ -28,6 +29,7 @@ function HomeTile ({home, handleDeletedHome, setUpdatedHomeId}){
             <p> Description :{description}</p>
             <p>Type : {category} </p>
             <p>Price: ${price}</p>
+            <p>Guest Capacity:{guest_capacity} </p>
             <button onClick={handleDeletedClick}>Delete Home</button>
             <br/>
             <button onClick={handleUpdateClick}>Update Home</button>    

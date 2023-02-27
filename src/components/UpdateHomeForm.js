@@ -16,7 +16,7 @@ function UpdateHomeForm({updatedHomeId, handleUpdatedHome}){
 
     function handleUpdateSubmit(e){
         e.preventDefault()
-        fetch(`http://localhost:3001/homes/${updatedHomeId}`,{
+        fetch(`http://localhost:9292/homes/${updatedHomeId}`,{
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",
