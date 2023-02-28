@@ -1,10 +1,11 @@
 import React, {useState} from "react";
+import UpdateHomeForm from "./UpdateHomeForm";
 
 
-function HomeTile ({home, handleDeletedHome, setUpdatedHomeId}){
+function HomeTile ({home, handleDeletedHome, handleUpdatedHome}){
     
     const {title, category, description, price, id, location,guest_capacity} = home
-
+    const [showForm , setShowForm] = useState(false)
     
   console.log(home)
      function handleDeletedClick(){
@@ -12,13 +13,11 @@ function HomeTile ({home, handleDeletedHome, setUpdatedHomeId}){
                 method: "DELETE",
             })
             .then(() => handleDeletedHome(home))
-            
          }
          
-         function handleUpdateClick(){
-
-            setUpdatedHomeId(id)
-        
+    function handleUpdateClick(){
+        // setUpdatedHomeId(id)
+        setShowForm(true)
     }
             
     
@@ -32,7 +31,7 @@ function HomeTile ({home, handleDeletedHome, setUpdatedHomeId}){
             <p>Guest Capacity:{guest_capacity} </p>
             <button onClick={handleDeletedClick}>Delete Home</button>
             <br/>
-            <button onClick={handleUpdateClick}>Update Home</button>    
+            {showForm ? <UpdateHomeForm setShowForm={setShowForm} updatedHomeId={id} handleUpdatedHome={handleUpdatedHome}/> : <button onClick={handleUpdateClick}>Update Home</button>} 
         </div>
     )
 }

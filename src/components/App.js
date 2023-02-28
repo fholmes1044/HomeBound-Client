@@ -67,9 +67,9 @@ const[updatedHomeId, setUpdatedHomeId] = useState("")
     }
   
     function handleUpdatedHome(updatedHome){
-      const selectHost = allHosts.find((host) => host.id == updatedHome.host_id);
+      const selectHost = allHosts.find((host) => host.id === updatedHome.host_id);
       const updatedHomeList = selectHost.homes.map((home) => {
-        if(home.id == updatedHome.id){
+        if(home.id === updatedHome.id){
           return updatedHome
         }
         else{

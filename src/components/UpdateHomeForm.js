@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-function UpdateHomeForm({updatedHomeId, handleUpdatedHome}){
+function UpdateHomeForm({updatedHomeId, handleUpdatedHome, setShowForm}){
     const [updatedData, setUpdatedData] = useState({
         title: "",
         description: "",
@@ -28,7 +28,16 @@ function UpdateHomeForm({updatedHomeId, handleUpdatedHome}){
                       }),
                 })
                 .then((data) => data.json())
-                .then((updatedHome) => handleUpdatedHome(updatedHome))
+                .then((updatedHome) => {
+                    handleUpdatedHome(updatedHome)
+                    setShowForm(false)
+                })
+
+                // setUpdatedData({
+                //     title: "",
+                //     description: "",
+                //     price: ""
+                // })
     }
     return(
         <div>

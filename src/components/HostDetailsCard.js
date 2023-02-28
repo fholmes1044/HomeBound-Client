@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NewHomeForm from "./NewHomeForm"
 import{ useParams} from 'react-router-dom'
 import HomeTile from "./HomeTile";
@@ -6,12 +6,13 @@ import UpdateHomeForm from "./UpdateHomeForm";
 
 function HostDetailsCard({allHosts,updatedHomeId, addNewHome, handleDeletedHost, handleDeletedHome, setUpdatedHomeId, handleUpdatedHome}){
     const {hostId} = useParams()
+    
     const id = parseInt(hostId)
     if(allHosts.length > 0){
       const currentHost = allHosts.find((host) => host.id === id )
       const currentHostHomes = currentHost.homes.map((home) => {
           return ( 
-            <HomeTile key={home.id} home={home} handleDeletedHome={handleDeletedHome} setUpdatedHomeId={setUpdatedHomeId} handleUpdatedHome={handleUpdatedHome}/>
+            <HomeTile key={home.id} home={home} handleDeletedHome={handleDeletedHome}  handleUpdatedHome={handleUpdatedHome}/>
             )
         
       })
@@ -27,7 +28,8 @@ function HostDetailsCard({allHosts,updatedHomeId, addNewHome, handleDeletedHost,
         return(
             <div>
                 <NewHomeForm  addNewHome={addNewHome} host={currentHost}/> 
-                <UpdateHomeForm updatedHomeId={updatedHomeId} handleUpdatedHome={handleUpdatedHome}/>
+                {/* <UpdateHomeForm updatedHomeId={updatedHomeId} handleUpdatedHome={handleUpdatedHome}/> */}
+                {/* {updatedHomeId ? <UpdateHomeForm updatedHomeId={updatedHomeId} handleUpdatedHome={handleUpdatedHome}/> : null} */}
                 HOST DETAILS
                 <h2>{currentHost.full_name}</h2> 
                 <h3>Email: {currentHost.email}</h3>
