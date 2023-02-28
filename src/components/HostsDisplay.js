@@ -13,8 +13,7 @@ import{
 function HostsDisplay({allHosts, addNewHost}){
     
     const {url} = useRouteMatch()
-   // console.log(url)
-    
+
     const hostsMap = allHosts.map((host) => {
         return (
             <div>

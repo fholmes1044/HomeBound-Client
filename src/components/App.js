@@ -24,7 +24,6 @@ const[updatedHomeId, setUpdatedHomeId] = useState("")
   }, [])
 
 
-//console.log("HOSTs", allHosts)
   function addNewHome(newHome){
     const updatedHosts = allHosts.map((host) =>{
       if(host.id === newHome.host_id){
@@ -48,8 +47,8 @@ const[updatedHomeId, setUpdatedHomeId] = useState("")
   }
 
   function handleDeletedHost(id){
-    const remainingHost = allHosts.filter((host) => host.id !== id)
-    setAllHosts(remainingHost)
+    const remainingHosts = allHosts.filter((host) => host.id !== id)
+    setAllHosts(remainingHosts)
   }
 
  

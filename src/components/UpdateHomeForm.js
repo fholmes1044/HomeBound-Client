@@ -33,11 +33,7 @@ function UpdateHomeForm({updatedHomeId, handleUpdatedHome, setShowForm}){
                     setShowForm(false)
                 })
 
-                // setUpdatedData({
-                //     title: "",
-                //     description: "",
-                //     price: ""
-                // })
+                
     }
     return(
         <div>

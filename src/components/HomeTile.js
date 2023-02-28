@@ -7,7 +7,7 @@ function HomeTile ({home, handleDeletedHome, handleUpdatedHome}){
     const {title, category, description, price, id, location,guest_capacity} = home
     const [showForm , setShowForm] = useState(false)
     
-  console.log(home)
+
      function handleDeletedClick(){
             fetch(`http://localhost:9292/homes/${id}`,{
                 method: "DELETE",
