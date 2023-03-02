@@ -4,27 +4,27 @@ import{ useParams} from 'react-router-dom'
 import HomeTile from "./HomeTile";
 
 
-function HostDetailsCard({allHosts,updatedHomeId, addNewHome, handleDeletedHost, handleDeletedHome, setUpdatedHomeId, handleUpdatedHome}){
+function HostDetailsCard({allHosts, addNewHome, handleDeletedHost, handleDeletedHome, handleUpdatedHome}){
     const {hostId} = useParams()
     
     const id = parseInt(hostId)
     if(allHosts.length > 0){
       const currentHost = allHosts.find((host) => host.id === id)
-      if(currentHost == undefined){
+      if(currentHost === undefined){
         return(
             <p>No Host Found</p>
         )
       }
       else{
       const currentHostHomes = currentHost.homes.map((home) => {
+        
           return ( 
             <HomeTile key={home.id} home={home} handleDeletedHome={handleDeletedHome}  handleUpdatedHome={handleUpdatedHome}/>
             )
-        
+          
       })
       
    function deleteHost(){
-       // console.log("Host",id)
         fetch(`http://localhost:9292/hosts/${id}`,{
                 method: "DELETE",
             })

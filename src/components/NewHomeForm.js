@@ -42,7 +42,7 @@ function handleSubmit(e){
           addNewHome(newHome)
   
     })
-    //alert("Your new Home has been added")
+    
     setNewHomeData({
         title: "",
         location: "",
@@ -51,14 +51,7 @@ function handleSubmit(e){
         price: "",
         guest_capacity:"" , 
         host_id: ""
-                })
-
-    document.getElementById("Title").value = ""
-    document.getElementById("Location").value = ""
-    document.getElementById("Category").value = ""
-    document.getElementById("Description").value = ""
-    document.getElementById("Price").value = ""
-    document.getElementById("Capacity").value = ""
+    })
 
 }
 
@@ -67,12 +60,12 @@ function handleSubmit(e){
     <div>
         <h2>Add New Home</h2>
         <form onSubmit={handleSubmit}>
-            <input type="text" id = "Title" name = "title" placeholder=" Home Title" onChange={handleHomeInput} />
-            <input type="text" id = "Location" name = "location" placeholder="Location Address" onChange={handleHomeInput}/>
-            <input type="text" id = "Category" name = "category" placeholder=" Housing Category" onChange={handleHomeInput}/>
-            <input type="text"  id = "Description" name = "description" placeholder="Home Description " onChange={handleHomeInput}/>
-            <input type="text" id = "Price" name = "price" placeholder="Price" onChange={handleHomeInput}/>
-            <input type="text" id = "Capacity" name = "guest_capacity" placeholder="Guest Capacity" onChange={handleHomeInput}/>
+            <input type="text" value={newHomeData.titleitle} name = "title" placeholder=" Home Title" onChange={handleHomeInput} />
+            <input type="text" value={newHomeData.location} name = "location" placeholder="Location Address" onChange={handleHomeInput}/>
+            <input type="text" value={newHomeData.category} name = "category" placeholder=" Housing Category" onChange={handleHomeInput}/>
+            <input type="text"  value={newHomeData.description} id = "Description" name = "description" placeholder="Home Description " onChange={handleHomeInput}/>
+            <input type="text" value={newHomeData.price} id = "Price" name = "price" placeholder="Price" onChange={handleHomeInput}/>
+            <input type="text" value={newHomeData.guest_capacity} name = "guest_capacity" placeholder="Guest Capacity" onChange={handleHomeInput}/>
             <br/>
             <input type="submit"  name="submit"  value="Add New Home"  className="submit" />  
         </form>

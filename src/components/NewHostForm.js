@@ -9,6 +9,7 @@ const [newHostData, setNewHostData] = useState({
     verified: ""
 })
 
+
 function handleHostInput(e){
 setNewHostData({
     ...newHostData,
@@ -37,17 +38,18 @@ function handleSubmit(e){
             verified: ""
         })
         addNewHost(newHost)
+       
     })
 }
  return(
     <div>
         <h2>Add New Host</h2>
         <form onSubmit={handleSubmit}>
-            <input type="text" name = "full_name" placeholder="First Name and Last Name" onChange={handleHostInput} />
-            <input type="text" name = "email" placeholder="Email" onChange={handleHostInput}  />
-            <input type="text" name = "phone_number" placeholder="Phone Number" onChange={handleHostInput} />
-            <input type="text" name = "address" placeholder="Address" onChange={handleHostInput} />
-            <input type="text" name = "verified" placeholder="Verified" onChange={handleHostInput} />
+            <input type="text"  value={newHostData.full_name} name = "full_name" placeholder="First Name and Last Name" onChange={handleHostInput} />
+            <input type="text" value={newHostData.email} name = "email" placeholder="Email" onChange={handleHostInput}  />
+            <input type="text"  value={newHostData.phone_number} name = "phone_number" placeholder="Phone Number" onChange={handleHostInput} />
+            <input type="text"  value={newHostData.address} name = "address" placeholder="Address" onChange={handleHostInput} />
+            <input type="text" value={newHostData.verified} name = "verified" placeholder="Verified" onChange={handleHostInput} />
             <input type="submit"  name="submit"  value="Add New Host"  className="submit" onChange={handleHostInput} />  
         </form>
         </div>

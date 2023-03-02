@@ -34,16 +34,11 @@ const[updatedHomeId, setUpdatedHomeId] = useState("")
     })
 
     setAllHosts(updatedHosts)
-    //console.log("updted", updatedHosts)
+    
   }
 
   function addNewHost(newHost){
-    const updatedHostList = allHosts.map((host) =>{
-      return (
-        {...host, newHost}
-        )
-    })
-   setAllHosts(updatedHostList)
+   setAllHosts([...allHosts, newHost])
   }
 
   function handleDeletedHost(id){
