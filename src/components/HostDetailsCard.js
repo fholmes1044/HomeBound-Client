@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NewHomeForm from "./NewHomeForm"
 import{ useParams} from 'react-router-dom'
 import HomeTile from "./HomeTile";
@@ -12,7 +12,7 @@ function HostDetailsCard({allHosts, addNewHome, handleDeletedHost, handleDeleted
       const currentHost = allHosts.find((host) => host.id === id)
       if(currentHost === undefined){
         return(
-            <p>No Host Found</p>
+            <p>Host was deleted</p>
         )
       }
       else{

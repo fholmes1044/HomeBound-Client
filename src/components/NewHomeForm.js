@@ -60,7 +60,7 @@ function handleSubmit(e){
     <div>
         <h2>Add New Home</h2>
         <form onSubmit={handleSubmit}>
-            <input type="text" value={newHomeData.titleitle} name = "title" placeholder=" Home Title" onChange={handleHomeInput} />
+            <input type="text" value={newHomeData.title} name = "title" placeholder=" Home Title" onChange={handleHomeInput} />
             <input type="text" value={newHomeData.location} name = "location" placeholder="Location Address" onChange={handleHomeInput}/>
             <input type="text" value={newHomeData.category} name = "category" placeholder=" Housing Category" onChange={handleHomeInput}/>
             <input type="text"  value={newHomeData.description} id = "Description" name = "description" placeholder="Home Description " onChange={handleHomeInput}/>

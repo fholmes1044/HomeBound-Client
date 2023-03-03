@@ -16,7 +16,6 @@ function HomeTile ({home, handleDeletedHome, handleUpdatedHome}){
          }
          
     function handleUpdateClick(){
-        // setUpdatedHomeId(id)
         setShowForm(true)
     }
             
