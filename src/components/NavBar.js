@@ -12,6 +12,7 @@ const linkStyles = {
 };
 
 function NavBar() {
+
   return (
     <div id="navbar">
       <NavLink
