@@ -35,18 +35,6 @@ function NavBar() {
       >
         Hosts
       </NavLink>
-      {/* <NavLink
-        to="/reviews/new"
-        exact
-        style={linkStyles}
-        activeStyle={{
-          background: "darkblue",
-        }}
-      >
-        NewReviewForm
-      </NavLink>
-       */}
-      
     </div>
   );
 }

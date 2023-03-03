@@ -13,3 +13,21 @@ code {
 }
 
 #h1{color: rgb(40, 137, 108);}
+
+#bg{
+  height: 500px;
+  width: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 50px 60px 100px 200px;
+  
+}
+
+#navbar{
+    
+margin: 0%;
+ width: 100%;
+ text-align: center;
+}
+
+
