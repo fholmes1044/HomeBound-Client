@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(232, 240, 240);
 }
 
 code {
@@ -31,7 +32,33 @@ text-align: center;
 
 #homeh2{
 color: rgb(17, 17, 28);
-/* font-family: 'Raleway',sans-serif; */
-/* font-family: 'Signika', sans-serif; */
 font-family: 'Rouge Script', cursive;
+/* border-style: outset; */
+text-decoration: underline;
+text-align:start
+
+}
+
+#newhomeform{
+  text-align: center;
+  padding-bottom:20px;
+}
+
+#hostprofile{
+  text-align: center;
+}
+
+input{
+  margin: 2px;
+}
+
+#key{
+  width: 200px;
+  height: 250px;
+  float: right;
+  padding:0px 0px 100px 0px
+}
+
+#hostdisplay{
+  border: dotted;
 }

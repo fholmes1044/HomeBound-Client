@@ -1,4 +1,4 @@
- import React, {useState} from "react";
+ import React from "react";
 
 import NewHostForm from "./NewHostForm"
 import{
@@ -20,8 +20,6 @@ function HostsDisplay({allHosts, addNewHost}){
                     <Link to={`${url}/${host.id}`}>{host.full_name}</Link>
                     <br/>   
                 </li>
-                
-
                 <hr />
                  
             </div>
@@ -31,12 +29,13 @@ function HostsDisplay({allHosts, addNewHost}){
 
 
     return (
-        <>
+        <div id="hostdisplay">
+        <img src="https://i.imgur.com/c8OXgaV.png" id="key"/>
         <NewHostForm addNewHost={addNewHost}/>
         <ul>
        {hostsMap}
         </ul>
-       </>
+       </div>
     )
 
 }

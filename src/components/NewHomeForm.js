@@ -58,8 +58,9 @@ function handleSubmit(e){
 
  return(
     <div>
-        <h2>Add New Home</h2>
-        <form onSubmit={handleSubmit}>
+        
+        <form onSubmit={handleSubmit} id ="newhomeform">
+            <h2>Add New Home</h2>
             <input type="text" value={newHomeData.title} name = "title" placeholder=" Home Title" onChange={handleHomeInput} />
             <input type="text" value={newHomeData.location} name = "location" placeholder="Location Address" onChange={handleHomeInput}/>
             <input type="text" value={newHomeData.category} name = "category" placeholder=" Housing Category" onChange={handleHomeInput}/>

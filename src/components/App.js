@@ -1,5 +1,4 @@
-//import logo from './logo.svg';
-//import './App.css';
+
 import React, {useState, useEffect} from "react"
 import { Switch, Route } from "react-router-dom";
 import HostsDisplay from "./HostsDisplay"
@@ -48,10 +47,10 @@ const[updatedHomeId, setUpdatedHomeId] = useState("")
 
  
   function handleDeletedHome(home){
-    const findHost = allHosts.find((host) => host.id == home.host_id);
+    const findHost = allHosts.find((host) => host.id === home.host_id);
     const updatedHomes = findHost.homes.filter((listedhome) => listedhome.id !== home.id)
     const updatedNewHosts = allHosts.map((host) =>{
-      if(findHost){
+      if(findHost.id === host.id){
           return {...host,homes:[...updatedHomes]}
       } else {
         return host
@@ -71,7 +70,7 @@ const[updatedHomeId, setUpdatedHomeId] = useState("")
         }
       })
       const updatedHost = allHosts.map((host) =>{
-        if(selectHost){
+        if(selectHost.id === host.id){
           return {...host, homes:[...updatedHomeList]}
         }
         else {
@@ -84,8 +83,8 @@ const[updatedHomeId, setUpdatedHomeId] = useState("")
 
   return (
     <div>
-      <h1 id="h1">App</h1>
-      <h2>Click a host to see their homes</h2>
+      <h2 id="homeh2">Find your home away from home</h2> 
+      
        <NavBar/>
        <Switch>
         <Route exact path ="/hosts">

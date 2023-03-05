@@ -32,16 +32,18 @@ function HostDetailsCard({allHosts, addNewHome, handleDeletedHost, handleDeleted
 
    }
         return(
-            <div>
-                <NewHomeForm  addNewHome={addNewHome} host={currentHost}/> 
-                HOST DETAILS
-                <h2>{currentHost.full_name}</h2> 
+            <div id="hostprofile">
+                
+                HOST PROFILE
+                <h2> Host Name: {currentHost.full_name}</h2> 
                 <h3>Email: {currentHost.email}</h3>
                 <h4>Phone Number: {currentHost.phone_number}</h4>
                 <h5>Verified: {currentHost.verified.toString()}</h5>
                 <button onClick={deleteHost}>Delete Host</button>
                  <hr/>
-                <h4>Host's Homes</h4>
+                 <NewHomeForm  addNewHome={addNewHome} host={currentHost}/> 
+                 <hr/>
+                <h3>Host's Homes</h3>
                     {currentHostHomes}
             
             </div>
