@@ -33,8 +33,6 @@ function HostDetailsCard({allHosts, addNewHome, handleDeletedHost, handleDeleted
    }
         return(
             <div id="hostprofile">
-                
-                HOST PROFILE
                 <h2> Host Name: {currentHost.full_name}</h2> 
                 <h3>Email: {currentHost.email}</h3>
                 <h4>Phone Number: {currentHost.phone_number}</h4>
