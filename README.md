@@ -1,3 +1,19 @@
+# Home Booking Application 
+
+This application will allow users to begin by seeing all of the available hosts who have homes to rent. The user can select a host to view the homes to find the one that best fits their needs. 
+
+## User Features
+* Users can search through a comprehensive list of host profiles and homes. 
+* Website owner can create, read, and delete hosts. 
+* Hosts can create, read , update, and delete their homes. 
+
+# Technologies Used 
+* Create React App
+* React 
+* Css 
+* JS
+* HTML
+* JSX
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

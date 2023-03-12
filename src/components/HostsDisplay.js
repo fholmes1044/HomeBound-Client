@@ -30,7 +30,7 @@ function HostsDisplay({allHosts, addNewHost}){
 
     return (
         <div id="hostdisplay">
-        <img src="https://i.imgur.com/c8OXgaV.png" id="key"/>
+        <img src="https://i.imgur.com/c8OXgaV.png" id="key" alt="key"/>
         <NewHostForm addNewHost={addNewHost}/>
         <ul>
        {hostsMap}
