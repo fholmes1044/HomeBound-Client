@@ -1,6 +1,6 @@
-# Home Booking Application 
+#  Home Booking Application 
 
-This application will allow users to begin by seeing all of the available hosts who have homes to rent. The user can select a host to view the homes to find the one that best fits their needs. 
+This application interacts with a created API to to create  home booking management system. It allow users to begin by seeing all of the available hosts who have homes to rent. The user can select a host to view the homes to find the one that best fits their needs. 
 
 ## User Features
 * Users can search through a comprehensive list of host profiles and homes. 
@@ -12,7 +12,6 @@ This application will allow users to begin by seeing all of the available hosts 
 * React 
 * Css 
 * JS
-* HTML
 * JSX
 # Getting Started with Create React App
 
